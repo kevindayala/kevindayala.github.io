@@ -21,3 +21,7 @@ node_modules/
 .cache/
 dist/
 *.css.map
+
+# Originales sin comprimir y previews de verificacion
+*.original.pdf
+tools/preview_*.png

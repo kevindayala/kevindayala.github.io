@@ -1,6 +1,22 @@
 /*--------------------------------------------------------------
 ## All Color Variable
 ----------------------------------------------------------------*/
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/syne-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/syne-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 :root {
   --web-wash: #111111;
   --primary: #ffffff;
@@ -202,91 +218,6 @@ label {
   margin-bottom: 8px;
 }
 
-/*--------------------------------------------------------------
-  2. Preloader
-----------------------------------------------------------------*/
-.cs_preloader {
-  position: fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 99999;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  font-size: 80px;
-  background-color: var(--web-wash);
-}
-
-.cs_preloader_in {
-  width: 130px;
-  height: 130px;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  padding: 30px;
-  border-radius: 50%;
-}
-.cs_preloader_in:after, .cs_preloader_in:before {
-  content: "";
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 50%;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 50%;
-  top: 50%;
-  margin-left: -65px;
-  margin-top: -65px;
-}
-.cs_preloader_in:after {
-  border-color: transparent;
-  border-top-color: var(--accent-light);
-  -webkit-animation: spin 1s ease-in-out infinite;
-          animation: spin 1s ease-in-out infinite;
-  z-index: 2;
-}
-.cs_preloader_in:before {
-  border-color: var(--accent-dark);
-  opacity: 0.35;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
 /*--------------------------------------------------------------
   3. Spacing
 ----------------------------------------------------------------*/
@@ -2039,6 +1970,20 @@ hr {
   -webkit-text-fill-color: transparent;
 }
 
+.cs_section_subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+/* El subtitulo recorta un degradado sobre el texto, asi que el icono hereda
+   el relleno transparente: necesita el suyo propio para verse. */
+.cs_section_icon {
+  -webkit-text-fill-color: var(--accent);
+  color: var(--accent);
+  font-size: 0.92em;
+  flex-shrink: 0;
+}
+
 
 .cs_white_bg {
   background-color: #fff;
@@ -3299,9 +3244,9 @@ hr {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: relative;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -3402,6 +3347,58 @@ hr {
 
 .cs_nav + .cs_btn.cs_style_1 {
   margin-left: 40px;
+}
+
+.cs_lang_switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 40px;
+  padding: 3px;
+  border: 1px solid #2b2c2d;
+  border-radius: 999px;
+}
+.cs_lang_switch + .cs_btn.cs_style_1 {
+  margin-left: 20px;
+}
+.cs_lang_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--secondary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.cs_lang_link:hover {
+  color: var(--primary, #fff);
+}
+.cs_lang_link.is-active {
+  background-color: var(--accent-soft);
+  color: var(--accent-light);
+}
+.cs_lang_flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  /* Contorno tenue: sin el, el blanco de la bandera se funde con el chip */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.cs_lang_link:not(.is-active) .cs_lang_flag {
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+.cs_lang_link:not(.is-active):hover .cs_lang_flag {
+  opacity: 1;
+}
+@media (max-width: 1199px) {
+  .cs_lang_switch {
+    margin-left: 20px;
+  }
 }
 
 .cs_site_header .cs_btn.cs_style_1 {
@@ -4039,6 +4036,37 @@ body.cs_nav_open {
     margin-bottom: 24px;
   }
 }
+.cs_availability_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 16px 7px 14px;
+  margin-bottom: 22px;
+  border: 1px solid var(--accent-muted);
+  border-radius: 999px;
+  background-color: var(--accent-soft);
+  color: var(--accent-light);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.cs_availability_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent-glow);
+  animation: cs_availability_pulse 2s infinite;
+}
+@keyframes cs_availability_pulse {
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70% { box-shadow: 0 0 0 6px rgba(168, 240, 184, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(168, 240, 184, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs_availability_dot { animation: none; }
+}
+
 .cs_hero.cs_style_1 .cs_hero_text {
   max-width: 620px;
   -webkit-box-flex: 1;
@@ -5593,6 +5621,49 @@ html {
 .cs_reveal:nth-child(3) { transition-delay: 0.16s; }
 .cs_reveal:nth-child(4) { transition-delay: 0.24s; }
 
+/* Sustituye animate.css + wow.js: mismos nombres de clase y atributos
+   data-wow-*, pero solo con los keyframes que el sitio realmente usa.
+   fill-mode backwards evita que la animacion deje transform/opacity fijados
+   encima de los estilos inline que aplica el parallax del hero. */
+.wow {
+  opacity: 0;
+  animation-duration: var(--wow-duration, 1s);
+  animation-delay: var(--wow-delay, 0s);
+  animation-fill-mode: backwards;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wow.is-revealed {
+  opacity: 1;
+}
+.wow.fadeIn.is-revealed { animation-name: csFadeIn; }
+.wow.fadeInUp.is-revealed { animation-name: csFadeInUp; }
+.wow.fadeInDown.is-revealed { animation-name: csFadeInDown; }
+.wow.fadeInLeft.is-revealed { animation-name: csFadeInLeft; }
+
+@keyframes csFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes csFadeInUp {
+  from { opacity: 0; transform: translate3d(0, 32px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes csFadeInDown {
+  from { opacity: 0; transform: translate3d(0, -32px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes csFadeInLeft {
+  from { opacity: 0; transform: translate3d(-40px, 0, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* En el hero, heroParallax() escribe transform inline en cada scroll. Si la
+   entrada tambien animara transform, ambos pelean por la misma propiedad y la
+   imagen salta al terminar la animacion: aqui la entrada es solo opacidad. */
+.cs_hero.cs_style_1 .wow.is-revealed {
+  animation-name: csFadeIn;
+}
+
 @media (max-width: 1199px) {
   .cs_hero.cs_style_1 .cs_hero_img,
   .cs_hero.cs_style_1 .cs_hero_aurora,
@@ -5610,6 +5681,11 @@ html {
     -webkit-clip-path: none;
     clip-path: none;
     transition: none;
+  }
+  .wow {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
   .cs_hero.cs_style_1 .cs_hero_img,
   .cs_hero.cs_style_1 .cs_hero_light,
@@ -5838,12 +5914,19 @@ html {
   text-align: center;
 }
 .cs_soft_skills_title {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   font-size: 18px;
   font-weight: 600;
   color: var(--accent-light);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 28px;
+}
+.cs_soft_skills_title .cs_section_icon {
+  color: var(--accent-light);
+  -webkit-text-fill-color: var(--accent-light);
 }
 .cs_soft_skills_grid {
   display: grid;
@@ -5939,6 +6022,65 @@ html {
   .cs_chip_row { gap: 8px; }
   .cs_chip { padding: 8px 13px; font-size: 14px; gap: 7px; }
   .cs_chip_icon { width: 18px; height: 18px; }
+}
+
+.cs_stack_secondary {
+  margin-top: 34px;
+}
+.cs_stack_secondary.cs_js_ready {
+  display: grid;
+  grid-template-rows: 1fr;
+  margin-top: 34px;
+  transition: grid-template-rows 0.4s ease, margin-top 0.4s ease;
+}
+.cs_stack_secondary.cs_js_ready:not(.is-expanded) {
+  grid-template-rows: 0fr;
+  margin-top: 0;
+}
+.cs_stack_secondary_inner {
+  overflow: hidden;
+  min-height: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs_stack_secondary.cs_js_ready {
+    transition: none;
+  }
+}
+.cs_stack_toggle_wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+.cs_stack_toggle[hidden] {
+  display: none;
+}
+.cs_stack_toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  border: 1px solid #2b2c2d;
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--secondary);
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.cs_stack_toggle:hover,
+.cs_stack_toggle:focus-visible {
+  border-color: var(--accent-muted);
+  background-color: var(--accent-soft);
+  color: var(--primary, #fff);
+}
+.cs_stack_toggle i {
+  font-size: 12px;
+  transition: transform 0.25s ease;
+}
+.cs_stack_toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
 }
 
 /*--------------------------------------------------------------
@@ -6054,6 +6196,32 @@ html {
   }
   .cs_hero.cs_style_1 .cs_hero_btns .cs_btn.cs_style_1:not(.cs_type_1) {
     border-color: #fff;
+  }
+}
+
+/*--------------------------------------------------------------
+  18b. Estado de descarga del CV
+----------------------------------------------------------------*/
+a[download].is-downloading {
+  pointer-events: none;
+  opacity: 0.75;
+  cursor: progress;
+}
+a[download].is-downloading i::before {
+  content: "\f110";
+  animation: cs_cv_spin 0.9s linear infinite;
+  display: inline-block;
+}
+
+@keyframes cs_cv_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a[download].is-downloading i::before {
+    animation: none;
   }
 }
 

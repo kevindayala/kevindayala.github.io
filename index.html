@@ -9,6 +9,9 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#111111">
     <link rel="canonical" href="https://kevindayala.github.io/">
+    <link rel="alternate" hreflang="es" href="https://kevindayala.github.io/">
+    <link rel="alternate" hreflang="en" href="https://kevindayala.github.io/en/">
+    <link rel="alternate" hreflang="x-default" href="https://kevindayala.github.io/">
     <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/img/brand/favicon.png" sizes="64x64">
     <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
@@ -29,14 +32,10 @@
     <meta name="twitter:title" content="Kevin Ayala, Desarrollador Full-Stack | Laravel, React e IA">
     <meta name="twitter:description" content="Ingeniero de Sistemas con más de 10 años desarrollando productos SaaS, plataformas web y soluciones de IA. Especializado en Laravel, React y arquitecturas escalables.">
     <meta name="twitter:image" content="https://kevindayala.github.io/assets/img/kevin/og.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="assets/img/kevin/cover.webp" as="image" type="image/webp" fetchpriority="high">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <script type="application/ld+json">
@@ -80,12 +79,6 @@
     <!-- Scroll progress bar -->
     <div class="cs_scroll_progress" role="presentation"><span></span></div>
 
-    <!-- Start Preloader -->
-    <div class="cs_preloader cs_accent_color cs_primary_font">
-      <div class="cs_preloader_in">K</div>
-    </div>
-    <!-- End Preloader -->
-
     <a class="cs_skip_link" href="#contenido">Saltar al contenido</a>
 
     <!-- Start Header Section -->
@@ -93,11 +86,6 @@
       <div class="cs_main_header">
         <div class="container">
           <div class="cs_main_header_in">
-            <div class="cs_main_header_left">
-              <a class="cs_site_branding" href="index.html">
-                <span class="cs_primary_color cs_semibold cs_fs_21">Kevin Ayala</span>
-              </a>
-            </div>
             <div class="cs_main_header_right">
               <nav class="cs_nav cs_semibold">
                 <ul class="cs_nav_list">
@@ -108,6 +96,10 @@
                   <li><a href="#contact">Contacto</a></li>
                 </ul>
               </nav>
+              <div class="cs_lang_switch" aria-label="Selector de idioma">
+                <a href="index.html" class="cs_lang_link is-active" aria-current="page" lang="es"><svg class="cs_lang_flag" viewBox="0 0 24 16" aria-hidden="true" focusable="false"><rect width="24" height="8" fill="#fcd116"/><rect y="8" width="24" height="4" fill="#003893"/><rect y="12" width="24" height="4" fill="#ce1126"/></svg>ES</a>
+                <a href="en/index.html" class="cs_lang_link" lang="en"><svg class="cs_lang_flag" viewBox="0 0 24 16" aria-hidden="true" focusable="false"><rect width="24" height="16" fill="#fff"/><g fill="#b22234"><rect width="24" height="1.23"/><rect y="2.46" width="24" height="1.23"/><rect y="4.92" width="24" height="1.23"/><rect y="7.38" width="24" height="1.23"/><rect y="9.85" width="24" height="1.23"/><rect y="12.31" width="24" height="1.23"/><rect y="14.77" width="24" height="1.23"/></g><rect width="9.6" height="8.62" fill="#3c3b6e"/></svg>EN</a>
+              </div>
               <a href="#contact" class="cs_btn cs_style_1 cs_type_2 cs_radius_15">Contactar</a>
             </div>
           </div>
@@ -127,10 +119,11 @@
       </div>
       <div class="container">
         <div class="cs_hero_text position-relative wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+          <span class="cs_availability_badge wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s"><span class="cs_availability_dot" aria-hidden="true"></span>Disponible para nuevas oportunidades</span>
           <h1 class="cs_hero_title cs_fs_90 cs_mb_18 cs_split_text">Kevin Ayala, Desarrollador Full-Stack</h1>
           <p class="cs_hero_subtitle cs_mb_52">Ingeniero de Sistemas con más de 10 años desarrollando productos SaaS, plataformas web y soluciones de IA. Especializado en Laravel, React y arquitecturas escalables. Acostumbro trabajar desde la definición del negocio hasta el despliegue en producción.</p>
           <div class="cs_hero_btns">
-            <a href="assets/Kevin-Ayala-CV.pdf" class="cs_btn cs_style_1 cs_radius_15" download>
+            <a href="assets/cv-document/es/Kevin-Ayala-CV.pdf" class="cs_btn cs_style_1 cs_radius_15" download>
               <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
               Descargar CV
             </a>
@@ -171,7 +164,7 @@
           <div class="col-lg-7 cs_about_copy">
             <div class="cs_about_info">
               <div class="cs_section_heading cs_style_1 cs_mb_38">
-                <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Sobre mí</p>
+                <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><i class="fa-solid fa-user cs_section_icon" aria-hidden="true"></i>Sobre mí</p>
                 <h2 class="cs_section_title cs_fs_67 mb-0">Perfil profesional</h2>
               </div>
               <div class="cs_about_body">
@@ -221,11 +214,11 @@
       <div class="container">
         <div class="cs_section_heading cs_style_2">
           <div class="cs_section_heading_left">
-            <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">Trayectoria</p>
+            <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s"><i class="fa-solid fa-timeline cs_section_icon" aria-hidden="true"></i>Trayectoria</p>
             <h2 class="cs_section_title cs_fs_67 mb-0">Formación y experiencia laboral</h2>
           </div>
           <div class="cs_section_heading_right">
-            <a href="assets/Kevin-Ayala-CV.pdf" class="cs_btn cs_style_1 cs_radius_15" download>Descargar CV</a>
+            <a href="assets/cv-document/es/Kevin-Ayala-CV.pdf" class="cs_btn cs_style_1 cs_radius_15" download>Descargar CV</a>
           </div>
         </div>
         <div class="cs_height_95 cs_height_lg_50"></div>
@@ -284,27 +277,32 @@
               <h3 class="cs_fs_37 cs_mb_66 cs_mb_lg_35">Experiencia</h3>
               <ul class="cs_list cs_style_1 cs_mp_0 cs_timeline">
                 <li class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.10s">
-                  <p class="cs_mb_30 cs_mb_lg_15">2026 · Emprendimiento propio</p>
-                  <h3 class="cs_fs_28 cs_mb_11">Desarrollador Full-Stack · Clouwehub</h3>
-                  <p class="mb-0">Desarrollé un CRM que atiende leads por WhatsApp con varios agentes: conversan, califican y pasan al equipo comercial según el estado de cada lead. Conecto los modelos de lenguaje al CRM y automatizo el seguimiento.</p>
+                  <p class="cs_mb_30 cs_mb_lg_15">Sept 2015 – Presente · Emprendimiento propio</p>
+                  <h3 class="cs_fs_28 cs_mb_11">Desarrollador Full-Stack (Freelance)</h3>
+                  <p class="mb-0">Desarrollé para Clouwehub un CRM que atiende leads por WhatsApp con varios agentes: conversan, califican y pasan al equipo comercial según el estado de cada lead. Conecto los modelos de lenguaje al CRM y automatizo el seguimiento.</p>
                 </li>
                 <li class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.22s">
-                  <p class="cs_mb_30 cs_mb_lg_15">2026  · Emprendimiento propio</p>
+                  <p class="cs_mb_30 cs_mb_lg_15">Dic 2025 – Jul 2026</p>
                   <h3 class="cs_fs_28 cs_mb_11">Desarrollador Full-Stack · Linkcars</h3>
                   <p class="mb-0">Desarrollé AgendaCEA, una plataforma SaaS multi-tenant para autoescuelas, de backend a frontend e infraestructura. También armé el pipeline de CI/CD y el despliegue con Docker.</p>
                 </li>
                 <li class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.34s">
-                  <p class="cs_mb_30 cs_mb_lg_15">2021 – 2026 · Emprendimiento propio</p>
+                  <p class="cs_mb_30 cs_mb_lg_15">Ago 2021 – May 2026 · Emprendimiento propio</p>
                   <h3 class="cs_fs_28 cs_mb_11">Desarrollador Web · Pumplabs</h3>
                   <p class="mb-0">Desarrollé más de 700 websites para el sector crypto, incluyendo proyectos Web3 (lanzamientos de tokens, landings de presale y productos del ecosistema).</p>
                 </li>
                 <li class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.46s">
-                  <p class="cs_mb_30 cs_mb_lg_15">Abr 2020 – May 2021</p>
-                  <h3 class="cs_fs_28 cs_mb_11">Director de Desarrollo Web · Five Vertex S.A.S</h3>
-                  <p class="mb-0">Lideré el área de desarrollo web: definí los estándares técnicos del equipo y coordiné la entrega de sitios corporativos con integraciones de marketing y analítica.</p>
+                  <p class="cs_mb_30 cs_mb_lg_15">Abr 2022 – Jun 2022</p>
+                  <h3 class="cs_fs_28 cs_mb_11">Desarrollador Front-End · Atrianna</h3>
+                  <p class="mb-0">Desarrollé interfaces de usuario y funcionalidades front-end.</p>
                 </li>
                 <li class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.58s">
-                  <p class="cs_mb_30 cs_mb_lg_15">2015 – 2019</p>
+                  <p class="cs_mb_30 cs_mb_lg_15">Ene 2020 – Abr 2022</p>
+                  <h3 class="cs_fs_28 cs_mb_11">Chief Development Officer · Five Vertex S.A.S</h3>
+                  <p class="mb-0">Lideré el área de desarrollo web: definí los estándares técnicos del equipo y coordiné la entrega de sitios corporativos con integraciones de marketing y analítica.</p>
+                </li>
+                <li class="wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.70s">
+                  <p class="cs_mb_30 cs_mb_lg_15">Ene 2015 – Dic 2019</p>
                   <h3 class="cs_fs_28 cs_mb_11">Desarrollador Web · Safaryweb</h3>
                   <p class="mb-0">Me enfoqué sobre todo en e-commerce y sitios corporativos: más de 50 proyectos full-stack, desde el diseño UX/UI hasta la puesta en producción y el acompañamiento de campañas digitales.</p>
                 </li>
@@ -323,64 +321,110 @@
       <div class="cs_height_135 cs_height_lg_70"></div>
       <div class="container">
         <div class="cs_section_heading cs_style_1 text-center cs_mb_50">
-          <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Habilidades técnicas</p>
+          <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><i class="fa-solid fa-layer-group cs_section_icon" aria-hidden="true"></i>Habilidades técnicas</p>
           <h2 class="cs_section_title cs_fs_37 mb-0">Stack tecnológico</h2>
         </div>
         <div class="cs_stack_groups">
           <div class="cs_stack_group wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.10s">
             <h4 class="cs_stack_row_title">Frontend</h4>
             <div class="cs_chip_row">
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/react/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">React</span></span>
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/nextdotjs/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Next.js</span></span>
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/typescript/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">TypeScript</span></span>
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/vuedotjs/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Vue 3</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/javascript/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">JavaScript</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/tailwindcss/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Tailwind</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/astro/69e584" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Astro</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/react.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">React</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/nextdotjs.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Next.js</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/typescript.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">TypeScript</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/vuedotjs.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Vue 3</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/javascript.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">JavaScript</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/tailwindcss.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Tailwind</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/astro.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Astro</span></span>
             </div>
           </div>
           <div class="cs_stack_group wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.20s">
             <h4 class="cs_stack_row_title">Backend y bases de datos</h4>
             <div class="cs_chip_row">
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/laravel/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Laravel</span></span>
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/php/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">PHP</span></span>
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/mysql/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">MySQL</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/postgresql/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">PostgreSQL</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/openjdk/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Java</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/laravel.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Laravel</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/php.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">PHP</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/mysql.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">MySQL</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/postgresql.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">PostgreSQL</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/openjdk.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Java</span></span>
               <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/icons/sqlserver.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">SQL Server</span></span>
             </div>
           </div>
           <div class="cs_stack_group wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.30s">
             <h4 class="cs_stack_row_title">DevOps e infraestructura</h4>
             <div class="cs_chip_row">
-              <span class="cs_chip is-core"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/docker/a8f0b8" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Docker</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/git/a8f0b8" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Git</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/githubactions/a8f0b8" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">GitHub Actions</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/cloudflare/a8f0b8" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Cloudflare</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/coolify/a8f0b8" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Coolify</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/hetzner/a8f0b8" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">VPS / Hetzner</span></span>
+              <span class="cs_chip is-core"><img class="cs_chip_icon" src="assets/img/stack/docker.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Docker</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/git.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Git</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/githubactions.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">GitHub Actions</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/cloudflare.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Cloudflare</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/coolify.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Coolify</span></span>
             </div>
           </div>
-          <div class="cs_stack_group wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.40s">
+        </div>
+        <div class="cs_stack_secondary" id="cs_stack_secondary">
+          <div class="cs_stack_secondary_inner">
+          <div class="cs_stack_groups">
+          <div class="cs_stack_group">
+            <h4 class="cs_stack_row_title">Servidores y hosting</h4>
+            <div class="cs_chip_row">
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/hetzner.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Hetzner</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/cloudways.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Cloudways</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/hostinger.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Hostinger</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/amazonwebservices.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">AWS</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/googlecloud.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Google Cloud</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/ubuntu.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Ubuntu Server</span></span>
+            </div>
+          </div>
+          <div class="cs_stack_group">
             <h4 class="cs_stack_row_title">Producto y automatización</h4>
             <div class="cs_chip_row">
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/n8n/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">n8n</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/ethereum/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Web3 (EVM / Solana)</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/wordpress/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">WordPress</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/woocommerce/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">WooCommerce</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/figma/3ecf6a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Figma / UX</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/n8n.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">n8n</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/openrouter.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">OpenRouter</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/figma.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Figma / UX</span></span>
             </div>
           </div>
-          <div class="cs_stack_group wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.50s">
+          <div class="cs_stack_group">
+            <h4 class="cs_stack_row_title">WordPress</h4>
+            <div class="cs_chip_row">
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/wordpress.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">WordPress</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/woocommerce.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">WooCommerce</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/elementor.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Elementor</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/divi.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Divi</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/plugins.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Plugins a la medida</span></span>
+            </div>
+          </div>
+          <div class="cs_stack_group">
+            <h4 class="cs_stack_row_title">Web3</h4>
+            <div class="cs_chip_row">
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/ethereum.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">EVM</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/solana.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Solana</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/web3dotjs.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">DApps</span></span>
+            </div>
+          </div>
+          <div class="cs_stack_group">
+            <h4 class="cs_stack_row_title">Email y mensajería</h4>
+            <div class="cs_chip_row">
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/mailchimp.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Mailchimp</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/brevo.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Brevo</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/resend.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Resend</span></span>
+            </div>
+          </div>
+          <div class="cs_stack_group">
             <h4 class="cs_stack_row_title">Tráfico y analítica</h4>
             <div class="cs_chip_row">
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/googleads/1fa34a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Google Ads</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/meta/1fa34a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Meta Ads</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/googleanalytics/1fa34a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Google Analytics</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/googletagmanager/1fa34a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Tag Manager</span></span>
-              <span class="cs_chip"><img class="cs_chip_icon" src="https://cdn.simpleicons.org/looker/1fa34a" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Looker Studio</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/googleads.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Google Ads</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/meta.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Meta Ads</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/googleanalytics.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Google Analytics</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/googletagmanager.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Tag Manager</span></span>
+              <span class="cs_chip"><img class="cs_chip_icon" src="assets/img/stack/looker.svg" alt="" width="20" height="20" loading="lazy"><span class="cs_chip_label">Looker Studio</span></span>
             </div>
           </div>
+          </div>
+          </div>
+        </div>
+        <div class="cs_stack_toggle_wrap">
+          <button type="button" class="cs_stack_toggle" id="cs_stack_toggle" aria-expanded="true" aria-controls="cs_stack_secondary" hidden data-label-more="Mostrar más herramientas" data-label-less="Mostrar menos herramientas">
+            <span class="cs_stack_toggle_text">Mostrar más herramientas</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
       <div class="cs_height_145 cs_height_lg_75"></div>
@@ -392,7 +436,7 @@
       <div class="cs_height_145 cs_height_lg_75"></div>
       <div class="container">
         <div class="cs_section_heading cs_style_1 text-center">
-          <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Especialidades</p>
+          <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><i class="fa-solid fa-star cs_section_icon" aria-hidden="true"></i>Especialidades</p>
           <h2 class="cs_section_title cs_fs_67 mb-0">Qué puedo aportar<br>a tu equipo</h2>
         </div>
         <div class="cs_height_95 cs_height_lg_50"></div>
@@ -420,7 +464,7 @@
               <div class="cs_iconbox_icon"><img src="assets/img/icons/layers.svg" alt=""></div>
               <div class="cs_iconbox_right">
                 <h3 class="cs_iconbox_title cs_mb_27 cs_fs_37 cs_mb_lg_17">SaaS Multi-tenant</h3>
-                <p class="mb-0">Hoy construyo en AgendaCEA una plataforma multi-tenant para autoescuelas, con aislamiento por cliente, CI/CD y despliegue con Docker. No es un ejercicio de arquitectura: está en producción.</p>
+                <p class="mb-0">Construí AgendaCEA, una plataforma multi-tenant para autoescuelas, con aislamiento por cliente, CI/CD y despliegue con Docker. No fue un ejercicio de arquitectura: estuvo en producción real.</p>
               </div>
             </div>
           </div>
@@ -438,7 +482,7 @@
               <div class="cs_iconbox_icon"><i class="fa-solid fa-lightbulb cs_fs_37 cs_primary_color"></i></div>
               <div class="cs_iconbox_right">
                 <h3 class="cs_iconbox_title cs_mb_27 cs_fs_37 cs_mb_lg_17">Visión de negocio y requerimientos</h3>
-                <p class="mb-0">Emprender me obligó a entender primero el problema de negocio y después elegir la herramienta. Hablo con quien tiene la necesidad, lo paso a criterios claros para el equipo y propongo algo que el negocio pueda mantener, no la solución más compleja por el gusto de armarla.</p>
+                <p class="mb-0">Antes de elegir la herramienta, entiendo el problema de negocio. Hablo con quien tiene la necesidad, lo paso a criterios claros para el equipo y propongo algo que el negocio pueda mantener, no la solución más compleja por el gusto de armarla.</p>
               </div>
             </div>
           </div>
@@ -462,7 +506,7 @@
           </div>
         </div>
         <div class="cs_soft_skills">
-          <h3 class="cs_soft_skills_title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.15s">Habilidades blandas</h3>
+          <h3 class="cs_soft_skills_title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.15s"><i class="fa-solid fa-handshake cs_section_icon" aria-hidden="true"></i>Habilidades blandas</h3>
           <div class="cs_soft_skills_grid">
             <article class="cs_soft_skill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.18s">
               <div class="cs_soft_skill_icon" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
@@ -518,7 +562,7 @@
       <div class="cs_height_126 cs_height_lg_80"></div>
       <div class="container">
         <div class="cs_section_heading cs_style_1 text-center">
-          <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Portafolio</p>
+          <p class="cs_section_subtitle cs_accent_color cs_mb_16 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><i class="fa-solid fa-folder-open cs_section_icon" aria-hidden="true"></i>Portafolio</p>
           <h2 class="cs_section_title cs_fs_67 mb-0">Proyectos destacados</h2>
         </div>
         <div class="cs_height_95 cs_height_lg_50"></div>
@@ -583,7 +627,7 @@
               <div>
                 <h2 class="cs_fs_67 mb-0">¿Hablamos?</h2>
                 <div class="cs_height_40 cs_height_lg_30"></div>
-                <p class="cs_contact_intro">Estoy abierto a propuestas. Escríbeme por el canal que te quede más fácil; normalmente respondo en menos de 24 horas.</p>
+                <p class="cs_contact_intro">Estoy buscando mi próximo reto como desarrollador Full-Stack. Escríbeme por el canal que te quede más fácil; normalmente respondo en menos de 24 horas.</p>
                 <div class="cs_height_40 cs_height_lg_30"></div>
               <div class="cs_contact_actions">
                 <a class="cs_contact_action js-mail" href="#contact" data-mail="a2V2aW5kYXlhbGFAZ21haWwuY29t">
@@ -618,7 +662,7 @@
                   </span>
                   <span class="cs_contact_action_arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
                 </a>
-                <a class="cs_contact_action cs_contact_action_cv" href="assets/Kevin-Ayala-CV.pdf" download>
+                <a class="cs_contact_action cs_contact_action_cv" href="assets/cv-document/es/Kevin-Ayala-CV.pdf" download>
                   <span class="cs_contact_action_icon"><i class="fa-solid fa-file-arrow-down"></i></span>
                   <span class="cs_contact_action_text">
                     <span class="cs_contact_action_label">Hoja de vida</span>
@@ -752,7 +796,6 @@
     </template>
 
     <script src="assets/js/jquery-3.6.0.min.js" defer></script>
-    <script src="assets/js/wow.min.js" defer></script>
     <script src="assets/js/gsap.min.js" defer></script>
     <script src="assets/js/main.js" defer></script>
   </body>

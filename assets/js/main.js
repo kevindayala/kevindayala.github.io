@@ -43,17 +43,9 @@
     return $(selector).length > 0;
   };
 
-  $(window).on('load', function () {
-    preloader();
-  });
-
   $(function () {
     mainNav();
     stickyHeader();
-    dynamicBackground();
-    modalVideo();
-    review();
-    hobbleEffect();
     portfolioModal();
     scrollProgress();
     counters();
@@ -62,12 +54,10 @@
     stackMarquee();
     revealWhatsApp();
     revealEmail();
+    cvDownload();
     heroAurora();
     heroParallax();
     scrollReveal();
-    if ($.exists('.wow') && !reducedMotion) {
-      new WOW().init();
-    }
   });
 
   $(window).on('resize', function () {
@@ -76,12 +66,8 @@
   });
 
   /*--------------------------------------------------------------
-    1. Preloader
+    1. Preloader (retirado: la pagina se muestra al instante)
   --------------------------------------------------------------*/
-  function preloader() {
-    $('.cs_preloader_in').fadeOut();
-    $('.cs_preloader').delay(150).fadeOut('slow');
-  }
 
   /*--------------------------------------------------------------
     2. Mobile Menu
@@ -148,113 +134,9 @@
   }
 
   /*--------------------------------------------------------------
-    4. Dynamic Background
+    4-7. Dynamic Background / Video / Review / Hobble
+    Retirados: no hay markup que los use en este portafolio.
   --------------------------------------------------------------*/
-  function dynamicBackground() {
-    $('[data-src]').each(function () {
-      var src = $(this).attr('data-src');
-      $(this).css({
-        'background-image': 'url(' + src + ')',
-      });
-    });
-  }
-
-  /*--------------------------------------------------------------
-    5. Modal Video
-  --------------------------------------------------------------*/
-  function modalVideo() {
-    if ($.exists('.cs_video_open')) {
-      $('body').append(`
-        <div class="cs_video_popup">
-          <div class="cs_video_popup-overlay"></div>
-          <div class="cs_video_popup-content">
-            <div class="cs_video_popup-layer"></div>
-            <div class="cs_video_popup_container">
-              <div class="cs_video_popup-align">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="about:blank"></iframe>
-                </div>
-              </div>
-              <div class="cs_video_popup_close"></div>
-            </div>
-          </div>
-        </div>
-      `);
-      $(document).on('click', '.cs_video_open', function (e) {
-        e.preventDefault();
-        var video = $(this).attr('href');
-
-        $('.cs_video_popup_container iframe').attr('src', `${video}`);
-
-        $('.cs_video_popup').addClass('active');
-      });
-      $('.cs_video_popup_close, .cs_video_popup-layer').on(
-        'click',
-        function (e) {
-          $('.cs_video_popup').removeClass('active');
-          $('html').removeClass('overflow-hidden');
-          $('.cs_video_popup_container iframe').attr('src', 'about:blank');
-          e.preventDefault();
-        },
-      );
-    }
-  }
-
-  /*--------------------------------------------------------------
-    6. Review
-  --------------------------------------------------------------*/
-  function review() {
-    $('.cs_rating').each(function () {
-      var review = $(this).data('rating');
-      var reviewVal = review * 20 + '%';
-      $(this).find('.cs_rating_percentage').css('width', reviewVal);
-    });
-  }
-
-  /*--------------------------------------------------------------
-    7. Hobble Effect
-  --------------------------------------------------------------*/
-  function hobbleEffect() {
-    if (!finePointer || reducedMotion) return;
-    $(document)
-      .on('mousemove', '.cs_hobble', function (event) {
-        var halfW = this.clientWidth / 2;
-        var halfH = this.clientHeight / 2;
-        var coorX = halfW - (event.pageX - $(this).offset().left);
-        var coorY = halfH - (event.pageY - $(this).offset().top);
-        var degX1 = (coorY / halfH) * 8 + 'deg';
-        var degY1 = (coorX / halfW) * -8 + 'deg';
-        var degX3 = (coorY / halfH) * -15 + 'px';
-        var degY3 = (coorX / halfW) * 15 + 'px';
-
-        $(this)
-          .find('.cs_hover_layer_1')
-          .css('transform', function () {
-            return (
-              'perspective( 800px ) translate3d( 0, 0, 0 ) rotateX(' +
-              degX1 +
-              ') rotateY(' +
-              degY1 +
-              ')'
-            );
-          });
-        $(this)
-          .find('.cs_hover_layer_2')
-          .css('transform', function () {
-            return (
-              'perspective( 800px ) translateX(' +
-              degX3 +
-              ') translateY(' +
-              degY3 +
-              ') scale(1.04)'
-            );
-          });
-      })
-      .on('mouseout', '.cs_hobble', function () {
-        $(this).find('.cs_hover_layer_1').removeAttr('style');
-        $(this).find('.cs_hover_layer_2').removeAttr('style');
-      });
-  }
 
   /*--------------------------------------------------------------
     8. Portfolio project modal
@@ -717,6 +599,35 @@
     });
   }
 
+  /* Evita descargas duplicadas por clics repetidos mientras el PDF viaja. */
+  function cvDownload() {
+    var links = document.querySelectorAll('a[download][href$=".pdf"]');
+    if (!links.length) return;
+
+    var busy = false;
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('click', function (e) {
+        if (busy) {
+          e.preventDefault();
+          return;
+        }
+
+        busy = true;
+        Array.prototype.forEach.call(links, function (el) {
+          el.classList.add('is-downloading');
+        });
+
+        setTimeout(function () {
+          busy = false;
+          Array.prototype.forEach.call(links, function (el) {
+            el.classList.remove('is-downloading');
+          });
+        }, 2500);
+      });
+    });
+  }
+
   function revealWhatsApp() {
     if (!$.exists('.js-whatsapp')) return;
 
@@ -1021,7 +932,25 @@
     16. Scroll Reveal
   --------------------------------------------------------------*/
   function scrollReveal() {
-    var nodes = document.querySelectorAll('.cs_reveal, .cs_reveal_media');
+    var reveal = document.querySelectorAll('.cs_reveal, .cs_reveal_media');
+    var wow = document.querySelectorAll('.wow');
+
+    // WOW.js leia la duracion y el retardo de atributos: se traducen a
+    // custom properties para que los consuma el CSS.
+    Array.prototype.forEach.call(wow, function (el) {
+      var duration = el.getAttribute('data-wow-duration');
+      var delay = el.getAttribute('data-wow-delay');
+      if (duration) el.style.setProperty('--wow-duration', duration);
+      if (delay) el.style.setProperty('--wow-delay', delay);
+    });
+
+    // Umbral por ratio en bloques normales; por borde en los .wow, que
+    // incluyen elementos altos donde el ratio nunca llegaria al umbral.
+    observeReveal(reveal, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    observeReveal(wow, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+  }
+
+  function observeReveal(nodes, options) {
     if (!nodes.length) return;
 
     if (reducedMotion || !('IntersectionObserver' in window)) {
@@ -1031,16 +960,13 @@
       return;
     }
 
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-revealed');
-          io.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
-    );
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, options);
 
     Array.prototype.forEach.call(nodes, function (el) {
       io.observe(el);
@@ -1085,6 +1011,34 @@
         duration: 0.12,
         ease: 'power2.out',
       });
+    });
+  });
+
+  /*--------------------------------------------------------------
+    14. Stack Toggle
+  --------------------------------------------------------------*/
+  $(function () {
+    var toggle = document.getElementById('cs_stack_toggle');
+    var secondary = document.getElementById('cs_stack_secondary');
+    if (!toggle || !secondary) return;
+
+    // Colapsado (con animación) solo si JS corre y el toggle puede
+    // funcionar; sin JS el bloque queda visible y accesible por defecto.
+    secondary.classList.add('cs_js_ready');
+    secondary.setAttribute('aria-hidden', 'true');
+    toggle.hidden = false;
+    toggle.setAttribute('aria-expanded', 'false');
+
+    var textEl = toggle.querySelector('.cs_stack_toggle_text');
+    var labelMore = toggle.dataset.labelMore || textEl.textContent;
+    var labelLess = toggle.dataset.labelLess || textEl.textContent;
+
+    toggle.addEventListener('click', function () {
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      secondary.classList.toggle('is-expanded', !expanded);
+      secondary.setAttribute('aria-hidden', String(expanded));
+      textEl.textContent = expanded ? labelMore : labelLess;
     });
   });
 })(jQuery); // End of use strict
