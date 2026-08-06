@@ -2,8 +2,9 @@
 
 Full-Stack Web Developer with 10+ years of experience building SaaS products, web platforms, e-commerce solutions, and production AI integrations. Specialized in **Laravel, PHP, React, Next.js, and TypeScript**, with experience in multi-tenant architectures, REST APIs, and production infrastructure.
 
-📍 Bucaramanga, Colombia
-🌐 [kevindayala.github.io](https://kevindayala.github.io/) · [LinkedIn](https://linkedin.com/in/kevin--ayala)
+![Location](https://img.shields.io/badge/Bucaramanga%2C_Colombia-4B5563?style=flat&logo=googlemaps&logoColor=white)
+[![Website](https://img.shields.io/badge/kevindayala.github.io-000000?style=flat&logo=googlechrome&logoColor=white)](https://kevindayala.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/kevin--ayala)
 
 ## Main stack
 
